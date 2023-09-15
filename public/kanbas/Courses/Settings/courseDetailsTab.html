@@ -1,0 +1,227 @@
+<table width="100%">
+  <tr valign="baseline">
+    <td>
+      <ul>
+        <li>
+          <a href="../../Account/index.html">Account</a>
+        </li>
+        <li>
+          <a href="#">Dashboard</a>
+        </li>
+        <li>
+          <a href="../CourseNavigation/index.html">Courses</a>
+        </li>
+        <li>
+          <a href="#">Calendar</a>
+        </li>
+        <li>
+          <a href="#">Inbox</a>
+        </li>
+        <li>
+          <a href="#">History</a>
+        </li>
+        <li>
+          <a href="#">Studio</a>
+        </li>
+        <li>
+          <a href="#">Commons</a>
+        </li>
+        <li>
+          <a href="#">help</a>
+        </li>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <li>
+          <a href="../Home/screen.html">Home</a>
+        </li>
+        <li>
+          <a href="../Module/index.html">Modules</a>
+        </li>
+        <li>
+          <a href="#">Piazza</a>
+        </li>
+        <li>
+          <a href="#">Zoom Meetings</a>
+        </li>
+        <li>
+          <a href="../assignments/index.html">Assignments</a>
+        </li>
+        <li>
+          <a href="#">Quizzes</a>
+        </li>
+        <li>
+          <a href="../Grades/grades.html">Grades</a>
+        </li>
+        <li>
+          <a href="#">People</a>
+        </li>
+        <li>
+          <a href="#">Panopto Video</a>
+        </li>
+        <li>
+          <a href="#">Discussions</a>
+        </li>
+        <li>
+          <a href="#">Announcements</a>
+        </li>
+        <li>
+          <a href="#">Pages</a>
+        </li>
+        <li>
+          <a href="#">Files</a>
+        </li>
+        <li>
+          <a href="#">Rubrics</a>
+        </li>
+        <li>
+          <a href="#">Outcomes</a>
+        </li>
+        <li>
+          <a href="#">Collaborations</a>
+        </li>
+        <li>
+          <a href="#">Syllabus</a>
+        </li>
+        <li>
+          <a href="../Settings/index.html">Settings</a>
+        </li>
+      </ul>
+    </td>
+    <td>
+      <a href="courseDetailsTab.html">
+        <button type="button">Course Details</button>
+      </a>
+      <a href="#">
+        <button type="button">Sections</button>
+      </a>
+      <a href="navigationTab.html">
+        <button type="button">Navigation</button>
+      </a>
+      <a href="#">
+        <button type="button">Apps</button>
+      </a>
+      <a href="#">
+        <button type="button">Feature Options</button>
+      </a>
+      <a href="#">
+        <button type="button">Integrations</button>
+      </a>
+      <br>
+      <br>
+      <h2>Course Details</h2>
+      <p>Image:</p>
+      <input type="file" />
+      <p>Name: CS4550 12631 Web Development SEC 01 Fall 2023 [BOS-1-TR]</p>
+      <p>Course Code: CS4550.12631.202410</p>
+      <p>Blueprint Course: NO</p>
+      <label>Course Template</label>
+      <br />
+      <input type="checkbox" value="course" name="check-genre" id="chkbox-course" />
+      <label for="chkbox-course">Enable course as a Course Template</label>
+      <br />
+      <br />
+      <label for="select-time-zone"> Time Zone </label><br />
+      <select id="select-time-zone">
+        <option selected value="times">Eastern Time(US & Canada) (-05:00/-04:00)</option>
+      </select>
+      <p>SIS ID: CS4550.12631.202410</p>
+      <p>Subaccount: <a href="#">CS Undergrad</a></p>
+      <p>Term: 202410_1 Fall 2023 Semester Full Term</p>
+
+      <label for="select-participation"> Participation: </label><br />
+      <select id="select-participation">
+        <option selected value="times">Term</option>
+      </select>
+      <p>Course participation is limited to term start and end dates</p>
+      <label for="text-fields-due">
+        Start
+      </label> <br />
+      <input type="date" id="text-start" value="2021-01-01" />
+      <br />
+      <br />
+      <label for="text-fields-due">
+        End
+      </label> <br />
+      <input type="date" id="text-end" value="2021-01-01" />
+      <br>
+      <br>
+      <input type="checkbox" value="before-term" name="check-genre" id="chkbox-before" />
+      <label for="chkbox-before">Restrict student from viewing course before term start date</label> <br />
+      <input type="checkbox" value="after-term" name="check-genre" id="chkbox-after" />
+      <label for="chkbox-after">Restrict student from viewing course after term end date</label> <br />
+      <br>
+      <label for="select-due-time"> Default due time: </label><br />
+      <select id="select-due-time">
+        <option selected value="due-time">Account default(11:59pm)</option>
+      </select>
+      <p>This influences the user interface for setting due dates. It does not change the time <br> due for any
+        existing
+        assignments. </p>
+
+      <label for="select-fields-language"> Language: </label><br />
+      <select id="select-fields-language">
+        <option selected value="language">Not set (user-configurable, defaults to English(Unit</option>
+      </select>
+      <p>This will override any users/system language preferences. This is only recommended <br> for foreign language
+        courses </p>
+      <p>File Storage: 10000 megabytes</p>
+      <label>Large Course:</label>
+      <br />
+      <input type="checkbox" value="large-course" name="check-genre" id="chkbox-large-course" />
+      <label for="chkbox-large-course">Launch SpeedGrader Filtered by Student Group</label>
+      <br>
+      <br>
+      <label>Grading Scheme:</label>
+      <br />
+      <input type="checkbox" value="grading" name="check-genre" id="chkbox-grading" />
+      <label for="chkbox-grading">Enable course grading scheme </label>
+      <br>
+      <br>
+      <label for="select-fields-license"> License: </label><br />
+      <select id="select-fields-license">
+        <option selected value="license">Private（Copyrighted）</option>
+      </select>
+      <br>
+      <br>
+      <label>File Copyright:</label>
+      <br />
+      <input type="checkbox" value="file-copyright" name="check-genre" id="chkbox-file-copyright" />
+      <label for="chkbox-file-copyright">Copyright and license information must be provided for files before they <br>
+        are published</label>
+      <br>
+      <br>
+      <label for="select-fields-visibility"> Visibility: </label>
+      <p>If you need to make your course public please contact your administrator/support</p>
+      <select id="select-fields-visibility">
+        <option selected value="visibility">Course</option>
+      </select>
+      <br>
+      <input type="checkbox" value="visibility" name="check-genre" id="chkbox-visibility" />
+      <label for="chkbox-visibility">Include this course in the public course index</label>
+      <br>
+      <br>
+      <label for="select-fields-format"> Format: </label><br />
+      <select id="select-fields-format">
+        <option selected value="format">On-Campus</option>
+      </select>
+      <br>
+      <br>
+      <label>Mastery Paths:</label>
+      <br />
+      <input type="checkbox" value="mastery-path" name="check-genre" id="chkbox-mastery" />
+      <label for="chkbox-mastery"> Enable individual learning paths for students based on assessment </label>
+      <br>
+      <br>
+      <form id="textarea">
+        <label>Description:</label><br />
+        <textarea cols="45" rows="5"></textarea>
+      </form>
+      <a href="#">more options</a>
+      <br>
+      <br>
+      <button type="button">Update Course Details</button>
+    </td>
+  </tr>
+</table>
