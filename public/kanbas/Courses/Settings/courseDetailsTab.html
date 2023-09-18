@@ -8,8 +8,8 @@
 
   <body>
     <table width="100%">
-      <tr valign="baseline">
-        <td>
+      <tr>
+        <td valign="top">
           <ul>
             <li>
               <a href="../../Account/index.html">Account</a>
@@ -40,7 +40,7 @@
             </li>
           </ul>
         </td>
-        <td>
+        <td valign="top">
           <ul>
             <li>
               <a href="../Home/home.html">Home</a>
@@ -98,30 +98,55 @@
             </li>
           </ul>
         </td>
-        <td>
-          <a href="courseDetailsTab.html">
-            <button type="button">Course Details</button>
-          </a>
-          <a href="#">
-            <button type="button">Sections</button>
-          </a>
-          <a href="navigationTab.html">
-            <button type="button">Navigation</button>
-          </a>
-          <a href="#">
-            <button type="button">Apps</button>
-          </a>
-          <a href="#">
-            <button type="button">Feature Options</button>
-          </a>
-          <a href="#">
-            <button type="button">Integrations</button>
-          </a>
+        <td valign="top">
+          <ul style="list-style: none">
+            <li style="display: inline; padding: 10px">
+              <a href="courseDetailsTab.html">Course Details</a>
+            </li>
+            <li style="display: inline; padding: 10px">
+              <a href="#">Section</a>
+            </li>
+            <li style="display: inline; padding: 10px">
+              <a href="navigationTab.html">Navigation</a>
+            </li>
+            <li style="display: inline; padding: 10px"><a href="#">Apps</a></li>
+            <li style="display: inline; padding: 10px">
+              <a href="#">Feature Options</a>
+            </li>
+            <li style="display: inline"><a href="#">Integrations</a></li>
+          </ul>
           <br />
           <br />
           <h2>Course Details</h2>
           <p>Image:</p>
-          <input type="file" />
+          <div
+            style="
+              width: 200px;
+              height: 100px;
+              border: 1px solid;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+            "
+          >
+            <input
+              type="file"
+              style="display: none"
+              id="imageInput"
+              accept="image/*"
+            />
+            <label
+              for="imageInput"
+              style="
+                cursor: pointer;
+                background-color: #f0f0f0;
+                border: 1px solid #ccc;
+                padding: 5px 10px;
+              "
+              >Choose Image</label
+            >
+          </div>
           <p>Name: CS4550 12631 Web Development SEC 01 Fall 2023 [BOS-1-TR]</p>
           <p>Course Code: CS4550.12631.202410</p>
           <p>Blueprint Course: NO</p>

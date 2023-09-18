@@ -9,112 +9,206 @@
 
 <body>
 
-<select>
-  <option value="speedGrader">SpeedGrader</option>
-</select>
-<hr>
-<h3>Assignment Name</h3>
-<form action="/Kanbas/Assignments/index.html">
-  <input value="A1 - ENV + HTML" />
-
-  <br />
-  <br />
-  <textarea cols="50" rows="10">
-    This is the description of the assignment
-</textarea>
-  <br />
-  <br />
-  <label for="points">Points</label>
-  <br />
-  <input id="points" max="100" min="50" step="5" type="number" value="100" />
-  <br />
-  <br />
-  <label for="select-assignment-Group"> Assignment Group </label><br />
-  <select id="select-assignment-Group">
-    <option selected value="ASSIGNMENT">ASSIGNMENTS</option>
-  </select>
-  <br />
-  <br />
-  <label for="select-display-grade"> Display Grade as </label><br />
-  <select id="select-one-Group">
-    <option selected value="PERCENTAGE">Percentage</option>
-  </select>
-  <br />
-  <br />
-  <label for="select-submission-type"> Submission Type </label><br />
-  <select id="select-submission-type">
-    <option selected value="ONLINE">Online</option>
-  </select>
-  <br />
-  <br />
-  <label>Online Entry Options</label>
-  <br />
-  <input type="checkbox" value="ENTRY" name="check-genre" id="chkbox-entry" />
-  <label for="chkbox-entry">Text Entry</label> <br />
-  <input type="checkbox" value="URL" name="check-genre" id="chkbox-web" />
-  <label for="chkbox-web">Website URL</label> <br />
-  <input type="checkbox" value="MEDIA" name="check-genre" id="chkbox-media" />
-  <label for="chkbox-media">Media Recordings</label> <br />
-  <input type="checkbox" value="ANNOTATION" name="check-genre" id="chkbox-student" />
-  <label for="chkbox-student">Student Annotation</label><br />
-  <input type="checkbox" value="FILEUPLOADS" name="check-genre" id="chkbox-file" />
-  <label for="chkbox-file">File Uploads</label>
-  <br />
-  <br />
-  <label for="select-submission-attends"> Submission Attends </label><br />
-  <select id="select-submission-attends">
-    <option selected value="UMLIMITED">Unlimited</option>
-  </select>
-  <br />
-  <br />
-  <label for="select-plagiarism-review"> Plagiarism Review </label><br />
-  <select id="select-plagiarism-review">
-    <option selected value="NONE">None</option>
-  </select>
-  <br />
-  <br />
-  <label>Group Assignment</label>
-  <br />
-  <input type="checkbox" value="Group" name="check-genre" id="chkbox-group" />
-    <label for="chkbox-group">This is a group assignment</label>
-  <br />
-  <br />
-  <label>Peer Reviews</label>
-  <br />
-  <input type="checkbox" value="reviews" name="check-genre" id="chkbox-reviews" />
-  <label for="chkbox-reviews">Require Peer Reviews</label>
-  <br />
-  <br />
-  <label>Assign <br> Assign to </label>
-  <br />
-  <input type="text" value="Everyone" />
-  <br />
-  <br />
-  <label for="text-fields-due">
-    Due
-  </label> <br />
-  <input type="date" id="text-fields-due" value="2021-01-01" />
-  <br />
-  <br />
-  <label for="text-fields-available">
-    Available from
-  </label> <br />
-  <input type="date" id="text-fields-available" value="2021-01-01" />
-  <br />
-  <br />
-  <label for="text-fields-end">
-    Until
-  </label> <br />
-  <input type="date" id="text-fields-end" value="2021-01-01" /><br />
-  <br />
-  <a href="index.html">
-    <button type="button">Cancel</button>
-  </a>
-  <a href="index.html">
-    <button type="button">Save</button>
-  </a>
-</form>
-
+  <table width="100%">
+    <tr>
+      <td valign="top">
+        <ul>
+          <li>
+            <a href="../../Account//index.html">Account</a>
+          </li>
+          <li>
+            <a href="#">Dashboard</a>
+          </li>
+          <li>
+            <a href="../../KanbasNavigation/index.html">Courses</a>
+          </li>
+          <li>
+            <a href="#">Calendar</a>
+          </li>
+          <li>
+            <a href="#">Inbox</a>
+          </li>
+          <li>
+            <a href="#">History</a>
+          </li>
+          <li>
+            <a href="#">Studio</a>
+          </li>
+          <li>
+            <a href="#">Commons</a>
+          </li>
+          <li>
+            <a href="#">help</a>
+          </li>
+        </ul>
+      </td>
+      <td valign="top">
+        <ul>
+          <li>
+            <a href="../Home/home.html">Home</a>
+          </li>
+          <li>
+            <a href="#">Modules</a>
+          </li>
+          <li>
+            <a href="#">Piazza</a>
+          </li>
+          <li>
+            <a href="#">Zoom Meetings</a>
+          </li>
+          <li>
+            <a href="../Assignments/index.html">Assignments</a>
+          </li>
+          <li>
+            <a href="#">Quizzes</a>
+          </li>
+          <li>
+            <a href="../Grades/grades.html">Grades</a>
+          </li>
+          <li>
+            <a href="#">People</a>
+          </li>
+          <li>
+            <a href="#">Panopto Video</a>
+          </li>
+          <li>
+            <a href="#">Discussions</a>
+          </li>
+          <li>
+            <a href="#">Announcements</a>
+          </li>
+          <li>
+            <a href="#">Pages</a>
+          </li>
+          <li>
+            <a href="#">Files</a>
+          </li>
+          <li>
+            <a href="#">Rubrics</a>
+          </li>
+          <li>
+            <a href="#">Outcomes</a>
+          </li>
+          <li>
+            <a href="#">Collaborations</a>
+          </li>
+          <li>
+            <a href="#">Syllabus</a>
+          </li>
+          <li>
+            <a href="../Settings/courseDetailsTab.html">Settings</a>
+          </li>
+        </ul>
+      </td>
+      <td valign="top">
+        <select>
+          <option value="speedGrader">SpeedGrader</option>
+        </select>
+        <hr>
+        <h3>Assignment Name</h3>
+        <form action="/Kanbas/Assignments/index.html">
+          <input value="A1 - ENV + HTML" />
+        
+          <br />
+          <br />
+          <textarea cols="30" rows="3">This is the assignment description.
+        </textarea>
+          <br />
+          <br />
+          <label for="points">Points</label>
+          <br />
+          <input id="points" max="100" min="50" step="5" type="number" value="100" />
+          <br />
+          <br />
+          <label for="select-assignment-Group"> Assignment Group </label><br />
+          <select id="select-assignment-Group">
+            <option selected value="ASSIGNMENT">ASSIGNMENTS</option>
+          </select>
+          <br />
+          <br />
+          <label for="select-display-grade"> Display Grade as </label><br />
+          <select id="select-one-Group">
+            <option selected value="PERCENTAGE">Percentage</option>
+          </select>
+          <br />
+          <br />
+          <label for="select-submission-type"> Submission Type </label><br />
+          <select id="select-submission-type">
+            <option selected value="ONLINE">Online</option>
+          </select>
+          <br />
+          <br />
+          <label>Online Entry Options</label>
+          <br />
+          <input type="checkbox" value="ENTRY" name="check-genre" id="chkbox-entry" />
+          <label for="chkbox-entry">Text Entry</label> <br />
+          <input type="checkbox" value="URL" name="check-genre" id="chkbox-web" />
+          <label for="chkbox-web">Website URL</label> <br />
+          <input type="checkbox" value="MEDIA" name="check-genre" id="chkbox-media" />
+          <label for="chkbox-media">Media Recordings</label> <br />
+          <input type="checkbox" value="ANNOTATION" name="check-genre" id="chkbox-student" />
+          <label for="chkbox-student">Student Annotation</label><br />
+          <input type="checkbox" value="FILEUPLOADS" name="check-genre" id="chkbox-file" />
+          <label for="chkbox-file">File Uploads</label>
+          <br />
+          <br />
+          <label for="select-submission-attends"> Submission Attends </label><br />
+          <select id="select-submission-attends">
+            <option selected value="UMLIMITED">Unlimited</option>
+          </select>
+          <br />
+          <br />
+          <label for="select-plagiarism-review"> Plagiarism Review </label><br />
+          <select id="select-plagiarism-review">
+            <option selected value="NONE">None</option>
+          </select>
+          <br />
+          <br />
+          <label>Group Assignment</label>
+          <br />
+          <input type="checkbox" value="Group" name="check-genre" id="chkbox-group" />
+            <label for="chkbox-group">This is a group assignment</label>
+          <br />
+          <br />
+          <label>Peer Reviews</label>
+          <br />
+          <input type="checkbox" value="reviews" name="check-genre" id="chkbox-reviews" />
+          <label for="chkbox-reviews">Require Peer Reviews</label>
+          <br />
+          <br />
+          <label>Assign <br> Assign to </label>
+          <br />
+          <input type="text" value="Everyone" />
+          <br />
+          <br />
+          <label for="text-fields-due">
+            Due
+          </label> <br />
+          <input type="date" id="text-fields-due" value="2021-01-01" />
+          <br />
+          <br />
+          <label for="text-fields-available">
+            Available from
+          </label> <br />
+          <input type="date" id="text-fields-available" value="2021-01-01" />
+          <br />
+          <br />
+          <label for="text-fields-end">
+            Until
+          </label> <br />
+          <input type="date" id="text-fields-end" value="2021-01-01" /><br />
+          <br />
+          <a href="index.html">
+            <button type="button">Cancel</button>
+          </a>
+          <a href="index.html">
+            <button type="button">Save</button>
+          </a>
+        </form>
+        
+      </td>
+    </tr>
+  </table>
 </body>
 
 </html>
