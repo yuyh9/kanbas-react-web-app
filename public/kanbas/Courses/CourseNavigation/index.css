@@ -1,0 +1,36 @@
+.wd-course-navigation {
+  background-color: white;
+  list-style: none;
+  padding: 0px;
+  width: 190px;
+  margin: 0px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.wd-course-navigation li {
+  margin-top: 10px;
+}
+.wd-course-navigation li.wd-active{
+  border-left: 2px solid black;
+  padding-left: 8px;
+}
+
+.wd-course-navigation li.wd-active a{
+  color: black;
+}
+
+.wd-course-navigation a{
+  color: red;
+  text-decoration: none;
+  display: inline-block;
+  max-width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal; 
+  word-wrap: break-word;
+}
+
+.wd-course-navigation li:hover a{
+  color: red;
+}
