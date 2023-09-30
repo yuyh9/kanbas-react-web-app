@@ -10,6 +10,7 @@
 
 .wd-course-navigation li {
   margin-top: 10px;
+  margin-left: 10px;
 }
 .wd-course-navigation li.wd-active{
   border-left: 2px solid black;
