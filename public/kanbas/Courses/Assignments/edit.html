@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../KanbasNavigation/index.css" />
   <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../vendors/bootstrap/bootstrap-tagsinput/css/bootstrap-tagsinput.css">
 </head>
 
 <body>
@@ -147,21 +148,21 @@
             </div>
             <hr />
             <form>
-
-
               <div class="mb-2">
                 <label for="name" class="col col-form-label">Assignments Name:</label>
                 <div class="col">
                   <input type="text" class="form-control w-100" id="name" value="" />
                 </div>
-              </div>
-              <div class="mb-3">
+               </div>
+
+               <div class="mb-3">
                 <label for="textarea1" class="col col-form-label">Assignment Description:</label>
                 <div class="col">
                   <textarea class="form-control" id="textarea1" rows="3">
 This is the assignment description.</textarea>
                 </div>
-              </div>
+               </div>
+
               <div class="col-10 container-fluid">
 
 
@@ -227,26 +228,26 @@ This is the assignment description.</textarea>
                     </div>                  
                     </div>
                   </div>
-                </div>
+                 </div>
 
-                <div class="mb-3 row">
+                 <div class="mb-3 row">
                   <label for="attends" class="col-4 col-form-label">Submission Attends</label>
                   <div class="col">
                     <select class="form-select">
                       <option selected>Unlimited</option>
                     </select>
                   </div>
-                </div>
+                 </div>
 
-                <div class="mb-3 row">
+                  <div class="mb-3 row">
                   <label for="review" class="col-4 col-form-label">Plagiarism Review</label>
                   <div class="col">
                     <select class="form-select">
                       <option selected>None</option>
                     </select>
                   </div>
-                </div>
-                <div class="mb-3 row">
+                  </div>
+                  <div class="mb-3 row">
                   <label for="group" class="col-4 col-form-label">Group Assignment</label>
                   <div class="col">
                     <div class="form-check form-check-inline">
@@ -255,8 +256,8 @@ This is the assignment description.</textarea>
                         This is a group assignment</label>
                     </div>
                   </div>
-                </div>
-                <div class="mb-3 row">
+                  </div>
+                  <div class="mb-3 row">
                   <label for="review" class="col-4 col-form-label">Peer Reviews</label>
                   <div class="col">
                     <div class="form-check form-check-inline">
@@ -265,26 +266,27 @@ This is the assignment description.</textarea>
                         Require Peer Reviews</label>
                     </div>
                   </div>
-                </div>
-                <div>
+                  </div>
+
+                  <div>
                   <div class="mb-3 row">
                     <label for="assign" class="col-4 col-form-label">Assign</label>
                     <div class="col border border-dark-subtle p-2 mb-2">
-                      <div class="mx-2 my-2">
+                      <div class="ms-3">
                         <label class="form-label">
                           Assign to
-                          <input type="text" class="form-control" id="name" value="Everyone" />
+                          <input type="text" class="form-control" id="name" value="Everyone"/>
                         </label>
                       </div>
   
-                      <div class="row">
+                      <div class="row ms-1">
                         <div class="col">
                           <label class="form-label">
                             Due<input type="date" class="form-control" id="name" value="MM/DD/YYYY" />
                           </label>
                         </div>
                       </div>
-                      <div class="row">
+                      <div class="row ms-1">
                         <div class="col">
                           <label class="form-label">
                             Available from<input type="date" class="form-control" id="name" value="MM/DD/YYYY" />
@@ -297,9 +299,9 @@ This is the assignment description.</textarea>
                         </div>
                       </div>
                       </div>
-                    </div>
+                      </div>
                   </div>
-                </div>
+
               </div>
               <hr />
               <div class="mb-3 row">
@@ -315,6 +317,8 @@ This is the assignment description.</textarea>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 </body>
 
 </html>
