@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <div class="d-block d-md-none ">
+  <div class="d-md-block d-md-none">
     <nav class="navbar bg-body-tertiary wd-bg-color-black">
       <div class="col-12">
         <div class="row justify-content-between">
@@ -43,10 +43,10 @@
   <div class="row">
     <div class="wd-bg-color-white collapse pt-2 modal fade" id="kanbasNavigation" tabindex="-1"
       aria-labelledby="ModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-fullscreen">
+      <div class="modal-dialog modal-fullscreen ">
         <div class="modal-content">
           <div class="moddal-header col me-5 pt-3" id="ModalLabel">
-            <button class="btn-close bg-secondary float-end" data-bs-dismiss="modal" aria-label="Close">
+            <button class="btn-close bg-light boarder border border-secondary-subtle float-end" data-bs-dismiss="modal" aria-label="Close">
             </button>
           </div>
           <div class="modal-body list-group col">
@@ -57,7 +57,7 @@
             <a href="../../Account/index.html" class="list-group-item-light text-danger text-decoration-none mb-5 fs-5">
               <div class="d-flex justify-content-between align-items-center">
                 <div>
-                  <i class="fa-regular fa-circle-user text-secondary fa-2xl me-3"></i>
+                  <i class="fa-regular fa-circle-user text-secondary fa-xl me-3"></i>
                   Account
                 </div>
                 <div>
@@ -69,7 +69,7 @@
               class="list-group-item-light text-danger text-decoration-none  mb-5 fs-5">
               <div class="d-flex justify-content-between align-items-center">
                 <div>
-                  <i class="fa-solid fa-book fa-2xl me-3"></i>Courses
+                  <i class="fa-solid fa-book fa-xl me-3"></i>Courses
                 </div>
                 <div>
                   <i class="fa-solid fa-angle-right text-secondary fa-xl me-4 pt-3"></i>
@@ -89,17 +89,31 @@
                   <i class="fa-solid fa-right-from-bracket fa-2xl me-3"></i>Commons</a>
 
               <a href="#" class="list-group-item-light  text-danger text-decoration-none mb-5 fs-5">
-                <i class="fa-regular fa-clock fa-2xl me-3"></i>History</a>
-                
-              <a href="#" class="list-group-item-light text-danger text-decoration-none mb-5 fs-5"><i
-                  class="fa-regular fa-circle-question fa-2xl me-3"></i>help</a>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <i class="fa-regular fa-clock fa-2xl me-3"></i>History
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-angle-right text-secondary fa-xl me-4 pt-3"></i>
+                  </div>
+                </div>
+  
+              <a href="#" class="list-group-item-light text-danger text-decoration-none fs-5">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <i class="fa-regular fa-circle-question fa-2xl me-3"></i>help
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-angle-right text-secondary fa-xl me-4"></i>
+                    </div>
+                  </div>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="wd-bg-color-white collapse shadow-lg mb-5 bg-body-tertiary rounded" id="courseNavigation">
+    <div class="wd-bg-color-white collapse shadow-lg mb-5 bg-body-tertiary rounded d-md-none" id="courseNavigation">
       <div class="ms-2 pt-2 list-group">
         <a href="home.html" class="list-group-item-light list-group-item-action text-danger text-decoration-none">
           <i class="fa-solid fa-house fa-lg me-2"></i>Home</a>
