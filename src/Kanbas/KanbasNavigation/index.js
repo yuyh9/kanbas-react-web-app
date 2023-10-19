@@ -36,7 +36,10 @@ function KanbasNavigation() {
       className="list-group wd-kanbas-navigation d-none d-md-block"
       style={{ width: 150 }}
     >
-      <div className="text-danger text-center my-2" style={{ fontSize: "50px" }}>
+      <div
+        className="text-danger text-center my-2"
+        style={{ fontSize: "50px" }}
+      >
         N
       </div>
       {links.map((link, index) => (
@@ -54,4 +57,3 @@ function KanbasNavigation() {
   );
 }
 export default KanbasNavigation;
-

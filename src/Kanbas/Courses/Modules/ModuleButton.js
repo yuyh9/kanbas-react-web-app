@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { FaRegCheckCircle, FaPlus, FaEllipsisV } from "react-icons/fa";
+import { FaRegCheckCircle, FaPlus, FaEllipsisV } from 'react-icons/fa';
 
 function ModuleButton() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
   return (
     <div className="mt-5">
       <div className="row justify-content-end">
@@ -24,27 +18,24 @@ function ModuleButton() {
           </button>
         </div>
         <div className="col-auto pe-0">
-          <Dropdown show={isDropdownOpen}>
-            <Dropdown.Toggle as={Button} variant="light border border-secondary-subtle" onClick={toggleDropdown}>
-              <FaRegCheckCircle className="mb-1 me-1 text-success" />Publish All
+          <Dropdown>
+            <Dropdown.Toggle as={Button} variant="light border border-secondary-subtle">
+              <FaRegCheckCircle className="mb-1 me-1 text-success" /> Publish All
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item href="#">Publish All modules and items</Dropdown.Item>
               <Dropdown.Item href="#">Publish modules only</Dropdown.Item>
-              <Dropdown.Item href="#">UnPublish All</Dropdown.Item>
+              <Dropdown.Item href="#">Unpublish All</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </div>
         <div className="col-auto pe-0">
           <button type="button" className="btn btn-danger">
-            <FaPlus className="mb-1 me-1 text-white" />Module
+            <FaPlus className="mb-1 me-1 text-white" /> Module
           </button>
         </div>
         <div className="col-auto pe-2">
-          <button
-            type="button"
-            className="btn btn-light border border-secondary-subtle"
-          >
+          <button type="button" className="btn btn-light border border-secondary-subtle">
             <FaEllipsisV className="mb-1" />
           </button>
         </div>
@@ -52,7 +43,7 @@ function ModuleButton() {
       <hr />
     </div>
   );
-};
+}
 
 export default ModuleButton;
 

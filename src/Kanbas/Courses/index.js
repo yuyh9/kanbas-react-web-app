@@ -12,8 +12,9 @@ function Courses() {
     <div>
       <CourseName />
       <hr style={{ width: "86vw" }} className="d-none d-md-block" />
+      <div>
         <CourseNavigation />
-        <div>
+        <div >
           <div
             className="overflow-y-scroll position-fixed bottom-0 end-0"
             style={{
@@ -35,6 +36,7 @@ function Courses() {
           </div>
         </div>
       </div>
+    </div>
   );
 }
 
