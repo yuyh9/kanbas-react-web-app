@@ -1,5 +1,6 @@
 import db from "../Database";
 import { Link } from "react-router-dom";
+import { FaEllipsisVertical, FaRegPenToSquare } from "react-icons/fa6";
 
 function Dashboard() {
   const courses = db.courses;
@@ -17,33 +18,32 @@ function Dashboard() {
           >
             <div className="card h-100">
               <div style={{ backgroundColor: "#3eafbb", height: "150px" }}>
+                <FaEllipsisVertical className=" text-white float-end mt-4 me-3" />
               </div>
               <div className="card-body">
-                <h5
-                  className="card-title text-truncate text-decoration-none d-inline-block"
-                  style={{
-                    width: "200px",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  {course.name}
-                </h5>
+                <Link to={`/Kanbas/Courses/${course._id}`}>
+                  <h5
+                    className="card-title text-truncate text-decoration-none d-inline-block text-dark"
+                    style={{
+                      width: "200px",
+                      overflow: "hidden",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {course.name}
+                  </h5>
+                </Link>
                 <p className="card-text">
                   {course.number}
                   <br />
                   <small>
-                    {course.startDate.substring(0, 4)} Semester Full Term
+                    {course.startDate.replace(/-/, "")} Semester Full Term
                   </small>
                 </p>
-
-                <Link
-                  to={`/Kanbas/Courses/${course._id}`}
-                  className="btn btn-primary"
-                >
-                  View Course
-                </Link>
+                <FaRegPenToSquare
+                  className="ms-1"
+                  style={{ fontSize: "22px" }}
+                />
               </div>
             </div>
           </div>

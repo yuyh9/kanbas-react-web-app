@@ -8,7 +8,9 @@ import AssignmentButton from "./AssignmentButton.js";
 function Assignments() {
   const { courseId } = useParams();
   const assignments = db.assignments;
-  const courseAssignments = assignments.filter((assignment) => assignment.course === courseId);
+  const courseAssignments = assignments.filter(
+    (assignment) => assignment.course === courseId
+  );
 
   const [toggle, setToggle] = useState(true);
 

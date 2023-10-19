@@ -1,6 +1,7 @@
 import ModuleList from "../Modules/ModuleList";
 import ModuleButton from "../Modules/ModuleButton";
 import CourseStatus from "./CourseStatus";
+
 function Home() {
   return (
     <div className="row">

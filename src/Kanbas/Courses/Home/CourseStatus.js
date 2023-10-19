@@ -1,5 +1,13 @@
 import React from "react";
-import { FaCheckCircle, FaFileImport, FaFileExport, FaBullseye, FaEye, FaBullhorn, FaBell } from "react-icons/fa";
+import {
+  FaCheckCircle,
+  FaFileImport,
+  FaFileExport,
+  FaBullseye,
+  FaEye,
+  FaBullhorn,
+  FaBell,
+} from "react-icons/fa";
 import { FaCalendarDays, FaChartSimple, FaBan } from "react-icons/fa6";
 
 const statusButtons = [
@@ -25,7 +33,7 @@ function Home() {
       <div>
         <h6>Course Status</h6>
         <div className="d-flex">
-          <button type="button" className="btn btn-secondary text-black me-1">
+          <button type="button" className="btn btn-light text-black me-1">
             <div className="d-flex align-items-center">
               <FaBan className="me-1 fa-sm" />
               Unpublish
@@ -55,7 +63,7 @@ function Home() {
         <div className="my-3 d-flex justify-content-between align-items-center">
           <small>Coming Up</small>
           <div className="ms-5 text-danger text-decoration-none">
-            <FaCalendarDays className="me-2"/>
+            <FaCalendarDays className="me-2" />
             <small>View Calendar</small>
           </div>
         </div>
