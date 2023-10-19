@@ -10,7 +10,7 @@ import {
 
 function GradeButton() {
   return (
-    <div className="mt-5 col-10">
+    <div className="col-10">
       <div className="row">
         <div className="d-flex align-items-center justify-content-between">
           <div className="text-danger">

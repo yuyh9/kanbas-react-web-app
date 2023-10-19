@@ -3,7 +3,7 @@ import { FaPlus, FaEllipsisVertical } from "react-icons/fa6";
 
 function AssignmentButton() {
   return (
-    <div className="mt-5">
+    <div>
       <div className="row">
         <div className="col-4 w-25">
           <input

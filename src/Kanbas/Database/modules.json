@@ -22,7 +22,7 @@
   {
     "_id": "M102",
     "name": "Fuel and Combustion",
-    "description": "Understanding rocket fuel, combustion processes, and efficiency.",
+    "description": "Understanding rocket fuel and combustion processes.",
     "course": "CS101",
     "lessons": [
       {
@@ -42,7 +42,7 @@
   {
     "_id": "M103",
     "name": "Nozzle Design",
-    "description": "Principles of rocket nozzle design and performance optimization.",
+    "description": "Principles of rocket nozzle design.",
     "course": "CS101",
     "lessons": [
       {

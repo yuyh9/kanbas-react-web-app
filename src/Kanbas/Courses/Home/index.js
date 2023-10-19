@@ -4,8 +4,8 @@ import CourseStatus from "./CourseStatus";
 
 function Home() {
   return (
-    <div className="row">
-        <div className="col-md-8 d-block">
+    <div className="row mx-5">
+        <div className="col-md-9 d-block">
             <ModuleButton />
             <ModuleList />
         </div>

@@ -29,9 +29,9 @@ const lectures = [
 
 function Home() {
   return (
-    <div className="mt-5">
+    <div>
       <div>
-        <h6>Course Status</h6>
+        <h5>Course Status</h5>
         <div className="d-flex">
           <button type="button" className="btn btn-light text-black me-1">
             <div className="d-flex align-items-center">

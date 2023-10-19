@@ -5,7 +5,7 @@ import { FaRegCheckCircle, FaPlus, FaEllipsisV } from "react-icons/fa";
 
 function ModuleButton() {
   return (
-    <div className="mt-5">
+    <div>
       <div className="row justify-content-end">
         <div className="col-auto pe-0 ms-5">
           <button
