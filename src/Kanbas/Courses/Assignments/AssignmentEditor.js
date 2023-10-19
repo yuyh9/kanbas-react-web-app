@@ -285,7 +285,7 @@ function AssignmentEditor() {
                 Notify users that this content has changed
               </label>
             </div>
-            <div class="col d-flex justify-content-end">
+            <div class="col d-flex justify-content-end mb-3">
               <Link
                 to={`/Kanbas/Courses/${courseId}/Assignments`}
                 className="btn btn-light me-2"
