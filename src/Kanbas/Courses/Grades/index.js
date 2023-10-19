@@ -11,7 +11,7 @@ function Grades() {
     (enrollment) => enrollment.course === courseId
   );
   return (
-    <div>
+    <div className="mx-5">
       <GradeButton />
       <div className="table-responsive mt-4 col-10 ">
         <table className="table table-striped table-bordered">

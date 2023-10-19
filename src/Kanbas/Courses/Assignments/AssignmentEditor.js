@@ -18,7 +18,7 @@ function AssignmentEditor() {
   };
   return (
     <div>
-      <div class="col-8 mx-5 mt-5">
+      <div class="col-8 mx-5 mt-2">
         <div className="d-flex justify-content-end">
           <div className="me-2 text-success d-flex align-items-center">
             <FaCheckCircle className="me-1" />

@@ -19,7 +19,7 @@ function Assignments() {
   };
 
   return (
-    <div className="col-10">
+    <div className="col-10 mx-5">
       <AssignmentButton />
       <div className="list-group my-3">
         <div

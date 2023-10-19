@@ -26,7 +26,7 @@ function CourseNavigation() {
   const { pathname } = useLocation();
   return (
     <div
-      className="wd-course-navigation list-group d-none d-md-block"
+      className="wd-course-navigation list-group"
       style={{ width: 150 }}
     >
       {links.map((link, index) => (

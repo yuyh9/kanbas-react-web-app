@@ -24,6 +24,7 @@
   text-align: center;
   background-color: black;
   border: none;
+  
 }
 
 .wd-kanbas-navigation a.active {
@@ -37,9 +38,3 @@
   color: white;
   text-decoration: none;
 }
-
-/* .wd-kanbas-navigation a i {
-  color: red;
-  font-size: 2em;
-  margin-bottom: 5px;
-} */
