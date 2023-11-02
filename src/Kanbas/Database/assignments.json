@@ -62,73 +62,121 @@
   {
     "_id": "A201",
     "title": "A1 - ENV + HTML",
-    "description": "Multiple Modules | Due Sep 18 at 11:59pm | 100 points",
+    "description": "Multiple Modules",
+    "points": 100,
+    "due": "Sep 18 at 11:59pm",
+    "available": "",
+    "until": "",
     "course": "CS102"
   },
   {
     "_id": "A202",
     "title": "A2 - CSS + BOOTSTRAP",
-    "description": "Multiple Modules | Due Oct 2 at 11:59pm | 100 points",
+    "description": "Multiple Modules",
+    "points": 100,
+    "due": "Sep 18 at 11:59pm",
+    "available": "",
+    "until": "",
     "course": "CS102"
   },
   {
     "_id": "A203",
     "title": "A3 - JS + REACT",
-    "description": "Multiple Modules | Due Oct 16 at 11:59pm | 100 points",
+    "description": "Multiple Modules",
+    "points": 100,
+    "due": "Sep 18 at 11:59pm",
+    "available": "",
+    "until": "",
     "course": "CS102"
   },
   {
     "_id": "A204",
     "title": "A4 - STATE + REDUX",
-    "description": "Multiple Modules | Not available until Oct 15 at 12:00am | Due Oct 20 at 11:59pm | 100 points",
+    "description": "Multiple Modules",
+    "points": 100,
+    "due": "Sep 18 at 11:59pm",
+    "available": "",
+    "until": "",
     "course": "CS102"
   },
   {
     "_id": "A205",
     "title": "A5 - NODE + SESSION",
-    "description": "Multiple Modules | Not available until Oct 9 at 12:00am | Due Nov 13 at 11:59pm | 100 points",
+    "description": "Multiple Modules",
+    "points": 100,
+    "due": "Sep 18 at 11:59pm",
+    "available": "",
+    "until": "",
     "course": "CS102"
   },
   {
     "_id": "A206",
     "title": "A6 - MONGO",
-    "description": "Multiple Modules | Not available until Nov 26 at 12:00am | Due Nov 27 at 11:59pm | 100 points",
+    "description": "Multiple Modules",
+    "points": 100,
+    "due": "Sep 18 at 11:59pm",
+    "available": "",
+    "until": "",
     "course": "CS102"
   },
   {
     "_id": "A301",
     "title": "A1 - ENV + HTML",
-    "description": "Multiple Modules | Not available until Sep 18 at 11:59am | 100 points",
+    "description": "Multiple Modules",
+    "points": 100,
+    "due": "Sep 18 at 11:59pm",
+    "available": "",
+    "until": "",
     "course": "CS103"
   },
   {
     "_id": "A302",
     "title": "A2 - CSS + BOOTSTRAP",
-    "description": "Multiple Modules | Not available until Oct 2 at 11:59am | 100 points",
+    "description": "Multiple Modules",
+    "points": 100,
+    "due": "Sep 18 at 11:59pm",
+    "available": "",
+    "until": "",
     "course": "CS103"
   },
   {
     "_id": "A303",
     "title": "A3 - JS + REACT",
-    "description": "Multiple Modules | Not available until Oct 16 at 11:59am | 100 points",
+    "description": "Multiple Modules",
+    "points": 100,
+    "due": "Sep 18 at 11:59pm",
+    "available": "",
+    "until": "",
     "course": "CS103"
   },
   {
     "_id": "A304",
     "title": "A4 - STATE + REDUX",
-    "description": "Multiple Modules | Not available until Oct 15 at 12:00am | Due Oct 20 at 11:59pm | 100 points",
+    "description": "Multiple Modules",
+    "points": 100,
+    "due": "Sep 18 at 11:59pm",
+    "available": "",
+    "until": "",
     "course": "CS103"
   },
   {
     "_id": "A305",
     "title": "A5 - NODE + SESSION",
-    "description": "Multiple Modules | Not available until Oct 9 at 12:00am | Due Nov 13 at 11:59pm | 100 points",
+    "description": "Multiple Modules",
+    "points": 100,
+    "due": "Sep 18 at 11:59pm",
+    "available": "",
+    "until": "",
     "course": "CS103"
   },
   {
     "_id": "A306",
     "title": "A6 - MONGO",
-    "description": "Multiple Modules | Not available until Nov 26 at 12:00am | Due Nov 27 at 11:59pm | 100 points",
+    "description": "Multiple Modules",
+    "points": 100,
+    "due": "Sep 18 at 11:59pm",
+    "available": "",
+    "until": "",
     "course": "CS103"
   }
 ]

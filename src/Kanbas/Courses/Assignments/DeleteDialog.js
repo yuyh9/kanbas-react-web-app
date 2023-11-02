@@ -2,8 +2,8 @@ import React from "react";
 
 const DeleteDialog = ({ assignment, handleConfirmDelete, handleCancelDelete }) => {
   return (
-    <div className="modal" tabIndex="-1" style={{ display: "block" }}>
-      <div className="modal-dialog">
+    <div className="modal" tabIndex="-1" style={{ display: "block", backgroundColor: "rgba(37, 35, 35, 0.15)"  }}>
+      <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">Confirm Deletion</h5>
