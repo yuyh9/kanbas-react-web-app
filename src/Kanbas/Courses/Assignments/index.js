@@ -1,21 +1,41 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import db from "../../Database";
 import { FaGripVertical, FaClipboardList, FaCheckCircle } from "react-icons/fa";
 import { FaEllipsisVertical, FaSortDown, FaPlus } from "react-icons/fa6";
 import AssignmentButton from "./AssignmentButton.js";
+import { useSelector, useDispatch } from "react-redux";
+import {addAssignment, deleteAssignment, setAssignment } from "./assignmentsReducer";
+import DeleteDialog from "./DeleteDialog.js";
 
 function Assignments() {
   const { courseId } = useParams();
-  const assignments = db.assignments;
+  const assignments = useSelector(
+    (state) => state.assignmentsReducer.assignments
+  );
   const courseAssignments = assignments.filter(
     (assignment) => assignment.course === courseId
   );
+  const dispatch = useDispatch();
 
   const [toggle, setToggle] = useState(true);
 
   const handleClick = () => {
     setToggle(!toggle);
+  };
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [selectedAssignment, setSelectedAssignment] = useState(null);
+  const handleDelete = (assignment) => {
+    setSelectedAssignment(assignment);
+    setShowDeleteDialog(true);
+  };
+
+  const handleConfirmDelete = () => {
+    dispatch(deleteAssignment(selectedAssignment._id));
+    setShowDeleteDialog(false);
+  };
+
+  const handleCancelDelete = () => {
+    setShowDeleteDialog(false);
   };
 
   return (
@@ -59,14 +79,67 @@ function Assignments() {
                   <Link
                     to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
                     className="text-decoration-none text-black fw-bold"
+                    onClick={() => dispatch(setAssignment(assignment))}
                   >
                     <h6 style={{ margin: "0" }}>{assignment.title}</h6>
                   </Link>
                 </div>
-                <p style={{ margin: "0", fontSize: "14px", color: "grey" }}>
-                  {assignment.description}
-                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    color: "grey",
+                    fontSize: "14px",
+                  }}
+                >
+                  <p style={{ margin: "0", color: "red" }}>
+                    {assignment.description}
+                  </p>
+                  {assignment.available && (
+                    <>
+                      <p style={{ margin: "0", paddingLeft: "5px" }}>|</p>
+                      <p style={{ margin: "0", paddingLeft: "5px" }}>
+                        {assignment.available}
+                      </p>
+                    </>
+                  )}
+                  {assignment.until && (
+                    <>
+                      <p style={{ margin: "0", paddingLeft: "5px" }}>until</p>
+                      <p style={{ margin: "0", paddingLeft: "5px" }}>
+                        {assignment.until}
+                      </p>
+                    </>
+                  )}
+                  {assignment.due && (
+                    <>
+                      <p style={{ margin: "0", paddingLeft: "5px" }}>|</p>
+                      <p style={{ margin: "0", paddingLeft: "5px" }}>
+                        Due {assignment.due}
+                      </p>
+                    </>
+                  )}
+                  <p style={{ margin: "0", paddingLeft: "5px" }}>|</p>
+                  <p style={{ margin: "0", paddingLeft: "5px" }}>
+                    {assignment.points} points
+                  </p>
+                </div>
               </div>
+              <button
+                type="button"
+                class="btn btn-danger me-2 "
+                onClick={() => handleDelete(assignment)}
+              >
+                Delete
+              </button>
+              {showDeleteDialog && (
+                <DeleteDialog
+                  assignment={selectedAssignment}
+                  handleConfirmDelete={handleConfirmDelete}
+                  handleCancelDelete={handleCancelDelete}
+                />
+              )}
+
               <FaCheckCircle
                 className="text-success me-4"
                 style={{ fontSize: "18px" }}

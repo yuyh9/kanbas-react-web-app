@@ -36,7 +36,7 @@ function Dashboard() {
       <h1>Dashboard</h1>
       <hr />
       <h2 className="ms-3">Published Courses ({courses.length})</h2>
-      <div className="ms-3 mt-4">
+      <div className="ms-4 mt-4">
         <h5>Course</h5>
         <input
           value={course.name}
