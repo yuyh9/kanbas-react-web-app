@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {
   FaGripVertical,
@@ -14,14 +14,36 @@ import {
   deleteModule,
   updateModule,
   setModule,
+  setModules,
 } from "./modulesReducer";
+import { findModulesForCourse, createModule } from "./client";
+import * as client from "./client";
 
 function ModuleList() {
   const { courseId } = useParams();
+  useEffect(() => {
+    findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId]);
   const modules = useSelector((state) => state.modulesReducer.modules);
   const module = useSelector((state) => state.modulesReducer.module);
   const dispatch = useDispatch();
-
+  const handleAddModule = () => {
+    createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
+  const handleDeleteModule = (moduleId) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
+  const handleUpdateModule = async () => {
+    const status = await client.updateModule(module);
+    dispatch(updateModule(module));
+  };
   return (
     <div className="list-group">
       <div className="list-group-item d-flex align-items-start">
@@ -44,14 +66,14 @@ function ModuleList() {
         </div>
         <div className="column mt-1">
           <button
-            className="btn btn-primary"
-            onClick={() => dispatch(updateModule(module))}
+            className="btn btn-primary me-1"
+            onClick={() => handleUpdateModule()}
           >
             Update
           </button>
           <button
             className="btn btn-success"
-            onClick={() => dispatch(addModule({ ...module, course: courseId }))}
+            onClick={handleAddModule}
           >
             Add
           </button>
@@ -92,8 +114,8 @@ function ModuleList() {
               </div>
               <div style={{ clear: "both", marginTop: "45px" }}>
                 <button
-                  className="btn btn-danger"
-                  onClick={() => dispatch(deleteModule(module._id))}
+                  className="btn btn-danger me-1"
+                  onClick={() => handleDeleteModule(module._id)}
                 >
                   Delete
                 </button>
