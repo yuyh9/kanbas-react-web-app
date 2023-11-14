@@ -26,7 +26,7 @@ function Kanbas() {
   }, []);
   const addCourse = async () => {
     const response = await axios.post(URL, course);
-    setCourses([...response.data, ...courses]);
+    setCourses([response.data, ...courses]);
     setCourse({ name: "" });
   };
   const deleteCourse = async (courseId) => {
