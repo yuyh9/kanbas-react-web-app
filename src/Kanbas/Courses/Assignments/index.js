@@ -9,17 +9,10 @@ import {
   setAssignment,
 } from "./assignmentsReducer";
 import DeleteDialog from "./DeleteDialog.js";
-import { findAssignmentForCourse} from "./client";
-import * as client from "./client";
 
 function Assignments() {
   const { courseId } = useParams();
-  useEffect(() => {
-    findAssignmentForCourse(courseId)
-      .then((assignments) =>
-        dispatch(setAssignment(assignments))
-    );
-  }, [courseId]);
+
   const assignments = useSelector(
     (state) => state.assignmentsReducer.assignments
   );
@@ -41,12 +34,10 @@ function Assignments() {
   };
 
   const handleConfirmDelete = () => {
-    client.deleteAssignment(selectedAssignment._id).then(() => {
-      dispatch(deleteAssignment(selectedAssignment._id));
-      setShowDeleteDialog(false);
-    });
+    dispatch(deleteAssignment(selectedAssignment._id));
+    setShowDeleteDialog(false);
   };
-
+  
   const handleCancelDelete = () => {
     setShowDeleteDialog(false);
   };

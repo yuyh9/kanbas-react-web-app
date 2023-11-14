@@ -2,7 +2,7 @@ import React from "react";
 import { FaPlus, FaEllipsisVertical } from "react-icons/fa6";
 import { useNavigate, useParams } from "react-router-dom";
 
-function AssignmentButton({handleAddAssignment}) {
+function AssignmentButton() {
   const { courseId } = useParams();
   const navigate = useNavigate();
 
@@ -15,6 +15,11 @@ function AssignmentButton({handleAddAssignment}) {
     until: "",
   };
 
+  const handleAddAssignment = () => {
+    const newAssignment = { ...initialState, _id: new Date().getTime().toString() };
+    navigate(`/Kanbas/Courses/${courseId}/Assignments/${newAssignment._id}`);
+  };
+  
   return (
     <div>
       <div className="row">

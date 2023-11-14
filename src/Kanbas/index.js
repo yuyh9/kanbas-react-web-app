@@ -22,9 +22,11 @@ function Kanbas() {
     const response = await axios.get(URL);
     setCourses(response.data);
   };
+  
   useEffect(() => {
     findAllCourses();
   }, []);
+
   const addCourse = async () => {
     const response = await axios.post(URL, course);
     setCourses([...courses, response.data]);
@@ -47,7 +49,9 @@ function Kanbas() {
         }
       })
     );
+    setCourse({ name: "" });
   };
+
 
   return (
     <Provider store={store}>

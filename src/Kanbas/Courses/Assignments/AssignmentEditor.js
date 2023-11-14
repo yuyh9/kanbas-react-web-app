@@ -8,38 +8,26 @@ import {
   updateAssignment,
   setAssignment,
 } from "./assignmentsReducer";
-import { findAssignmentForCourse} from "./client";
-import * as client from "./client";
+
 
 function AssignmentEditor() {
-  const {courseId } = useParams(); 
-  const {assignmentId } = useParams();
+  const {assignmentId, courseId } = useParams(); 
   const assignments = useSelector((state) => state.assignmentsReducer.assignments);
   const assignment = useSelector((state) => state.assignmentsReducer.assignment);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const API_BASE = process.env.REACT_APP_API_BASE;
-  useEffect(() => {
-    findAssignmentForCourse(courseId)
-      .then((assignments) =>
-        dispatch(setAssignment(assignments))
-    );
-  }, [courseId]);
-  const handleSave = async () => {
+
+  const handleSave = () => {
     const existingAssignment = assignments.find((assignment) => assignment._id === assignmentId);
     if (existingAssignment) {
-      client.updateAssignment(existingAssignment).then((updatedAssignment) => {
-        dispatch(updateAssignment(updatedAssignment));
-      });
+      dispatch(updateAssignment(assignment));
     } else {
-      client.createAssignment(courseId, assignment).then((newAssignment) => {
-        dispatch(addAssignment(newAssignment));
-      });
+      dispatch(addAssignment({
+        ...assignment, course: courseId
+      }));
     }
-  
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
-
   return (
     <div>
       <div className="col-8 mx-5 mt-2">
