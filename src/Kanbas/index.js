@@ -9,7 +9,7 @@ import axios from "axios";
 
 function Kanbas() {
   const [courses, setCourses] = useState([]);
-  const API_BASE = process.env.REACT_APP_API_BASE;
+  const API_BASE = "http://localhost:4000/api";
   const URL = `${API_BASE}/courses`;
 
   const [course, setCourse] = useState({
@@ -19,9 +19,15 @@ function Kanbas() {
     endDate: "2023-12-15",
   });
   const findAllCourses = async () => {
-    const response = await axios.get(URL);
-    setCourses(response.data);
+    console.log("Fetching courses...");
+    try {
+      const response = await axios.get(URL);
+      setCourses(response.data);
+    } catch (error) {
+      console.error("Error fetching courses:", error);
+    }
   };
+  
   
   useEffect(() => {
     findAllCourses();
