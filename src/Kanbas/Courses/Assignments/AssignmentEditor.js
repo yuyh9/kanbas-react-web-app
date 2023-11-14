@@ -12,7 +12,8 @@ import { findAssignmentForCourse} from "./client";
 import * as client from "./client";
 
 function AssignmentEditor() {
-  const { assignmentId, courseId } = useParams(); 
+  const {courseId } = useParams(); 
+  const {assignmentId } = useParams();
   const assignments = useSelector((state) => state.assignmentsReducer.assignments);
   const assignment = useSelector((state) => state.assignmentsReducer.assignment);
   const dispatch = useDispatch();
