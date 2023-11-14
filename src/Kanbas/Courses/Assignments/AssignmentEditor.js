@@ -17,6 +17,7 @@ function AssignmentEditor() {
   const assignment = useSelector((state) => state.assignmentsReducer.assignment);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const API_BASE = process.env.REACT_APP_API_BASE;
   useEffect(() => {
     findAssignmentForCourse(courseId)
       .then((assignments) =>
@@ -34,7 +35,7 @@ function AssignmentEditor() {
       });
     }
  
-    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+    navigate(`${API_BASE}/Courses/${courseId}/Assignments`);
   };
 
   return (
