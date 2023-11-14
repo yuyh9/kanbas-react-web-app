@@ -1,19 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FaGripVertical, FaClipboardList, FaCheckCircle } from "react-icons/fa";
 import { FaEllipsisVertical, FaSortDown, FaPlus } from "react-icons/fa6";
 import AssignmentButton from "./AssignmentButton.js";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  addAssignment,
   deleteAssignment,
   setAssignment,
 } from "./assignmentsReducer";
 import DeleteDialog from "./DeleteDialog.js";
+import { findAssignmentForCourse} from "./client";
 import * as client from "./client";
 
 function Assignments() {
   const { courseId } = useParams();
+  useEffect(() => {
+    findAssignmentForCourse(courseId)
+      .then((assignments) =>
+        dispatch(setAssignment(assignments))
+    );
+  }, [courseId]);
   const assignments = useSelector(
     (state) => state.assignmentsReducer.assignments
   );
