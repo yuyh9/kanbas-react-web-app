@@ -17,6 +17,22 @@ function Kanbas() {
     startDate: "2023-09-10",
     endDate: "2023-12-15",
   });
+  const findAllCourses = async () => {
+    const response = await axios.get(URL);
+    setCourses(response.data);
+  };
+  useEffect(() => {
+    findAllCourses();
+  }, []);
+  const addCourse = async () => {
+    const response = await axios.post(URL, courses);
+    setCourses([...response.data, ...courses]);
+    setCourses({ name: "" });
+  }; 
+   const deleteCourse = async (course) => {
+    const response = await axios.delete(`${URL}/${course._id}`);
+    setCourses(courses.filter((c) => c._id !== course._id));
+  };
   const updateCourse = async (course) => {
     const response = await axios.put(
       `${URL}/${course._id}`,
@@ -32,23 +48,7 @@ function Kanbas() {
     );
     setCourse({ name: "" });
   };
-  const deleteCourse = async (course) => {
-    const response = await axios.delete(`${URL}/${course._id}`);
-    setCourses(courses.filter((c) => c._id !== course._id));
-  };
-  const addCourse = async () => {
-    const response = await axios.post(URL, courses);
-    setCourses([...response.data, ...courses]);
-    setCourses({ name: "" });
-  };
-  const findAllCourses = async () => {
-    const response = await axios.get(URL);
-    setCourses(response.data);
-  };
-  useEffect(() => {
-    findAllCourses();
-  }, []);
-
+  
   return (
     <Provider store={store}>
       <div className="d-flex">
