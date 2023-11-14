@@ -28,15 +28,16 @@ function AssignmentEditor() {
   const handleSave = async () => {
     const existingAssignment = assignments.find((assignment) => assignment._id === assignmentId);
     if (existingAssignment) {
-      const status = await client.updateAssignment(assignment);
-      dispatch(updateAssignment(assignment));
+      client.updateAssignment(existingAssignment).then((updatedAssignment) => {
+        dispatch(updateAssignment(updatedAssignment));
+      });
     } else {
-      client.createAssignment(courseId, assignment).then((assignment) => {
-        dispatch(addAssignment({ ...assignment, course: courseId }));
+      client.createAssignment(courseId, assignment).then((newAssignment) => {
+        dispatch(addAssignment(newAssignment));
       });
     }
- 
-    navigate(`${API_BASE}/Courses/${courseId}/Assignments`);
+  
+    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
 
   return (
