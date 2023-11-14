@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { FaEllipsisVertical, FaRegCalendarDays } from "react-icons/fa6";
 import { FaCheckCircle } from "react-icons/fa";
@@ -8,6 +8,8 @@ import {
   updateAssignment,
   setAssignment,
 } from "./assignmentsReducer";
+import { findAssignmentForCourse} from "./client";
+import * as client from "./client";
 
 function AssignmentEditor() {
   const { assignmentId, courseId } = useParams(); 
@@ -15,16 +17,23 @@ function AssignmentEditor() {
   const assignment = useSelector((state) => state.assignmentsReducer.assignment);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const handleSave = () => {
+  useEffect(() => {
+    findAssignmentForCourse(courseId)
+      .then((assignments) =>
+        dispatch(setAssignment(assignments))
+    );
+  }, [courseId]);
+  const handleSave = async () => {
     const existingAssignment = assignments.find((assignment) => assignment._id === assignmentId);
     if (existingAssignment) {
+      const status = await client.updateAssignment(assignment);
       dispatch(updateAssignment(assignment));
     } else {
-      dispatch(addAssignment({
-        ...assignment, course: courseId
-      }));
+      client.createAssignment(courseId, assignment).then((assignment) => {
+        dispatch(addAssignment({ ...assignment, course: courseId }));
+      });
     }
+ 
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
 

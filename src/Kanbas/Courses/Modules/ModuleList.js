@@ -25,13 +25,13 @@ function ModuleList() {
   const module = useSelector((state) => state.modulesReducer.module);
   const dispatch = useDispatch();
   useEffect(() => {
-    client.findModulesForCourse(courseId)
+    findModulesForCourse(courseId)
       .then((modules) =>
         dispatch(setModules(modules))
     );
   }, [courseId]);
   const handleAddModule = () => {
-    client.createModule(courseId, module).then((module) => {
+    createModule(courseId, module).then((module) => {
       dispatch(addModule(module));
     });
   };

@@ -4,8 +4,13 @@ import { FaGripVertical, FaClipboardList, FaCheckCircle } from "react-icons/fa";
 import { FaEllipsisVertical, FaSortDown, FaPlus } from "react-icons/fa6";
 import AssignmentButton from "./AssignmentButton.js";
 import { useSelector, useDispatch } from "react-redux";
-import {addAssignment, deleteAssignment, setAssignment } from "./assignmentsReducer";
+import {
+  addAssignment,
+  deleteAssignment,
+  setAssignment,
+} from "./assignmentsReducer";
 import DeleteDialog from "./DeleteDialog.js";
+import * as client from "./client";
 
 function Assignments() {
   const { courseId } = useParams();
@@ -30,8 +35,10 @@ function Assignments() {
   };
 
   const handleConfirmDelete = () => {
-    dispatch(deleteAssignment(selectedAssignment._id));
-    setShowDeleteDialog(false);
+    client.deleteAssignment(selectedAssignment._id).then(() => {
+      dispatch(deleteAssignment(selectedAssignment._id));
+      setShowDeleteDialog(false);
+    });
   };
 
   const handleCancelDelete = () => {
