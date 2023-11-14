@@ -24,6 +24,7 @@ function Courses() {
   useEffect(() => {
     findCourseById(courseId);
   }, [courseId]);
+  
   return (
     <div style={{ position: "relative" }}>
       <CourseName />

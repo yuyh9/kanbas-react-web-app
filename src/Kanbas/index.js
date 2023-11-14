@@ -11,27 +11,12 @@ function Kanbas() {
   const [courses, setCourses] = useState([]);
   const API_BASE = process.env.REACT_APP_API_BASE;
   const URL = `${API_BASE}/courses`;
-  const updateCourse = async (course) => {
-    const response = await axios.put(`${URL}/${course._id}`, course);
-    setCourses(
-      courses.map((c) => {
-        if (c._id === course._id) {
-          return response.data;
-        }
-        return c;
-      })
-    );
-    setCourses({ name: "" });
-  };
-  const deleteCourse = async (course) => {
-    const response = await axios.delete(`${URL}/${course._id}`);
-    setCourses(courses.filter((c) => c._id !== course._id));
-  };
-  const addCourse = async () => {
-    const response = await axios.post(URL, courses);
-    setCourses([...response.data, ...courses]);
-    setCourses({ name: "" });
-  };
+  const [course, setCourse] = useState({
+    name: "New Course",
+    number: "New Number",
+    startDate: "2023-09-10",
+    endDate: "2023-12-15",
+  });
   const findAllCourses = async () => {
     const response = await axios.get(URL);
     setCourses(response.data);
@@ -39,6 +24,28 @@ function Kanbas() {
   useEffect(() => {
     findAllCourses();
   }, []);
+  const addCourse = async () => {
+    const response = await axios.post(URL, course);
+    setCourses([response.data, ...courses]);
+    setCourse({ name: "" });
+  };
+  const deleteCourse = async (courseId) => {
+    const response = await axios.delete(`${URL}/${courseId}`);
+
+    setCourses(courses.filter((course) => course._id !== courseId));
+  };
+  const updateCourse = async () => {
+    const response = await axios.put(`${URL}/${course._id}`, course);
+    setCourses(
+      courses.map((c) => {
+        if (c._id === course._id) {
+          return course;
+        } else {
+          return c;
+        }
+      })
+    );
+  };
 
   return (
     <Provider store={store}>
@@ -53,6 +60,7 @@ function Kanbas() {
               element={
                 <Dashboard
                   courses={courses}
+                  course={course}
                   setCourse={setCourses}
                   addNewCourse={addCourse}
                   deleteCourse={deleteCourse}
