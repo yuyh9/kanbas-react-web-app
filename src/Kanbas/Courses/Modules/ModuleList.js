@@ -67,7 +67,7 @@ function ModuleList() {
         <div className="column mt-1">
           <button
             className="btn btn-primary me-1"
-            onClick={() => handleUpdateModule}
+            onClick={() => handleUpdateModule()}
           >
             Update
           </button>
