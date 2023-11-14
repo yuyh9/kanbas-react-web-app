@@ -70,7 +70,7 @@ function Dashboard({ courses, course, setCourse, addCourse,
                   {course.number}
                   <br />
                   <small>
-                    {course.startDate.replace(/-/g, "")} Semester Full Term
+                    {course.startDate} Semester Full Term
                   </small>
                 </p>
                 <FaRegPenToSquare
