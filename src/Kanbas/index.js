@@ -11,6 +11,7 @@ function Kanbas() {
   const [courses, setCourses] = useState([]);
   const API_BASE = process.env.REACT_APP_API_BASE;
   const URL = `${API_BASE}/courses`;
+
   const [course, setCourse] = useState({
     name: "New Course",
     number: "New Number",
@@ -25,30 +26,29 @@ function Kanbas() {
     findAllCourses();
   }, []);
   const addCourse = async () => {
-    const response = await axios.post(URL, courses);
-    setCourses([...response.data, ...courses]);
-    setCourses({ name: "" });
-  }; 
-   const deleteCourse = async (course) => {
-    const response = await axios.delete(`${URL}/${course._id}`);
-    setCourses(courses.filter((c) => c._id !== course._id));
+    const response = await axios.post(URL, course);
+    setCourses([response.data, ...courses]);
+    setCourse({ name: "" });
   };
-  const updateCourse = async (course) => {
-    const response = await axios.put(
-      `${URL}/${course._id}`,
-      course
-    );
+  const deleteCourse = async (courseId) => {
+    const response = await axios.delete(`${URL}/${courseId}`);
+
+    setCourses(courses.filter((course) => course._id !== courseId));
+  };
+  const updateCourse = async () => {
+    const response = await axios.put(`${URL}/${course._id}`, course);
+
     setCourses(
       courses.map((c) => {
         if (c._id === course._id) {
-          return response.data;
+          return course;
+        } else {
+          return c;
         }
-        return c;
       })
     );
-    setCourse({ name: "" });
   };
-  
+
   return (
     <Provider store={store}>
       <div className="d-flex">
@@ -63,10 +63,10 @@ function Kanbas() {
                 <Dashboard
                   courses={courses}
                   course={course}
-                  updateCourse={updateCourse}
-                  deleteCourse={deleteCourse}
+                  setCourse={setCourse}
                   addCourse={addCourse}
-                  setCourse={setCourses}
+                  deleteCourse={deleteCourse}
+                  updateCourse={updateCourse}
                 />
               }
             />

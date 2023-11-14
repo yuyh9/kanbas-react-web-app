@@ -2,7 +2,7 @@ import { React } from "react";
 import { Link } from "react-router-dom";
 import { FaEllipsisVertical, FaRegPenToSquare } from "react-icons/fa6";
 
-function Dashboard({ courses, course, setCourse, addNewCourse,
+function Dashboard({ courses, course, setCourse, addCourse,
   deleteCourse, updateCourse }) {
 
   return (
@@ -34,7 +34,7 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
           type="date"
           onChange={(e) => setCourse({ ...course, endDate: e.target.value })}
         />
-        <button className="btn btn-success me-2 mt-2" onClick={addNewCourse}>
+        <button className="btn btn-success me-2 mt-2" onClick={addCourse}>
           Add
         </button>
         <button className="btn btn-primary mt-2" onClick={updateCourse}>
