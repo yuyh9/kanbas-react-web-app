@@ -13,7 +13,7 @@ export const updateAssignment = async (assignment) => {
   return response.data;
 };
 
-export const findAssignmentForCourse = async (courseId) => {
+export const findAssignmentsForCourse = async (courseId) => {
   const response = await axios.get(`${COURSES_URL}/${courseId}/assignments`);
   return response.data;
 };

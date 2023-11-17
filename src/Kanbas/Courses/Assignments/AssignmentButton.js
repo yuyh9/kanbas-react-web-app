@@ -1,10 +1,15 @@
 import React from "react";
 import { FaPlus, FaEllipsisVertical } from "react-icons/fa6";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import * as client from "./client";
+import {
+  addAssignment
+} from "./assignmentsReducer";
 function AssignmentButton() {
   const { courseId } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch(); 
 
   const initialState = {
     title: "New Assignment",
@@ -14,12 +19,17 @@ function AssignmentButton() {
     available: "",
     until: "",
   };
-
   const handleAddAssignment = () => {
-    const newAssignment = { ...initialState, _id: new Date().getTime().toString() };
-    navigate(`/Kanbas/Courses/${courseId}/Assignments/${newAssignment._id}`);
+    client.createAssignment(courseId, initialState).then((newAssignment) => {
+      dispatch(
+        addAssignment({
+          ...newAssignment,
+          course: courseId,
+        })
+      );
+      navigate(`/Kanbas/Courses/${courseId}/Assignments/${newAssignment._id}`);
+    });
   };
-  
   return (
     <div>
       <div className="row">

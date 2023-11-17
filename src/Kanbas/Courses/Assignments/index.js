@@ -9,16 +9,30 @@ import {
   setAssignment,
 } from "./assignmentsReducer";
 import DeleteDialog from "./DeleteDialog.js";
+import * as client from "./client";
 
 function Assignments() {
   const { courseId } = useParams();
-
+  const [assignment, setAssignment] = useState({});
   const assignments = useSelector(
     (state) => state.assignmentsReducer.assignments
   );
   const courseAssignments = assignments.filter(
     (assignment) => assignment.course === courseId
   );
+  useEffect(() => {
+    const fetchAssignmentsForCourse = async () => {
+      try {
+        const response = await client.findAssignmentsForCourse(courseId);
+        setAssignment(response);
+      } catch (error) {
+        console.error("Error fetching assignments:", error);
+      }
+    };
+
+    fetchAssignmentsForCourse();
+  }, [courseId]);
+
   const dispatch = useDispatch();
 
   const [toggle, setToggle] = useState(true);

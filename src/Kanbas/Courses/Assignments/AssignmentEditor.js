@@ -8,7 +8,7 @@ import {
   updateAssignment,
   setAssignment,
 } from "./assignmentsReducer";
-
+import * as client from "./client";
 
 function AssignmentEditor() {
   const {assignmentId, courseId } = useParams(); 
@@ -17,17 +17,23 @@ function AssignmentEditor() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSave = () => {
-    const existingAssignment = assignments.find((assignment) => assignment._id === assignmentId);
-    if (existingAssignment) {
+  const handleSave = async () => {
+    if (assignmentId !== undefined && assignmentId !== "") {
+      const status = await client.updateAssignment(assignment);
       dispatch(updateAssignment(assignment));
     } else {
-      dispatch(addAssignment({
-        ...assignment, course: courseId
-      }));
+      client.createAssignment(courseId, assignment).then((newAssignment) => {
+        dispatch(
+          addAssignment({
+            ...newAssignment,
+            course: courseId,
+          })
+        );
+        navigate(`/Kanbas/Courses/${courseId}/Assignments/${newAssignment._id}`);
+      });
     }
-    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
+  
   return (
     <div>
       <div className="col-8 mx-5 mt-2">
