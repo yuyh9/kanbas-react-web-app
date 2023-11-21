@@ -17,7 +17,7 @@ function AssignmentEditor() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleAddAssignment = async () => {
+  const handleAddAssignment = () => {
     client.createAssignment(courseId, assignment).then((assignment) => {
       dispatch(addAssignment(assignment));
     });
