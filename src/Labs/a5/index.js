@@ -1,7 +1,7 @@
 import EncodingParametersInURLs from "./EncodingParametersInURLs";
 import WorkingWithArrays from "./WorkingWithArrays";
 import WorkingWithObjects from "./WorkingWithObjects";
-const REACT_API = process.env.REACT_APP_BASE;
+const REACT_API =  process.env.REACT_APP_API_BASE || "http://localhost:4000/api";
 
 function Assignment5() {
   return (

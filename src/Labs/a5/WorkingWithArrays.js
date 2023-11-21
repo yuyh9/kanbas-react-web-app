@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-const REACT_API = process.env.REACT_APP_BASE;
+const REACT_API =  process.env.REACT_APP_API_BASE || "http://localhost:4000/api";
 
 function WorkingWithArrays() {
   const [errorMessage, setErrorMessage] = useState(null);
