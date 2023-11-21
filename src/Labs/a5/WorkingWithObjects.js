@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-const REACT_API =  process.env.REACT_APP_API_BASE || "http://localhost:4000/api";
 
 function WorkingWithObjects() {
   const [assignment, setAssignment] = useState({
@@ -11,7 +10,7 @@ function WorkingWithObjects() {
     completed: false,
     score: 0,
   });
-  const URL =`${REACT_API}/a5/assignment`;
+  const URL = "http://localhost:4000/a5/assignment" || "https://kanbas-node-server-app-4gys.onrender.com/a5/assignment";
   const fetchAssignment = async () => {
     const response = await axios.get(`${URL}`);
     setAssignment(response.data);
@@ -80,26 +79,26 @@ function WorkingWithObjects() {
       </button>
       <h4>Retrieving Objects</h4>
       <a
-        href={`${REACT_API}/a5/assignment`}
+        href="http://localhost:4000/a5/assignment"
         className="btn btn-primary me-2"
       >
         Get Assignment
       </a>
       <h4>Retrieving Properties</h4>
       <a
-        href={`${REACT_API}/a5/assignment/title`}
+        href="http://localhost:4000/a5/assignment/title"
         className="btn btn-primary me-2"
       >
         Get Title
       </a>
       <a
-        href={`${REACT_API}/a5/assignment/score}`}
+        href="http://localhost:4000/a5/assignment/score"
         className="btn btn-primary me-2"
       >
         Get Score
       </a>
       <a
-        href= {`${REACT_API}/a5/assignment/completed`}
+        href="http://localhost:4000/a5/assignment/completed"
         className="btn btn-primary me-2"
       >
         Get completed
