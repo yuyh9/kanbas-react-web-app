@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect}from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import db from "../Database";
@@ -10,6 +10,7 @@ function CourseName() {
   const [empty, kanbas, courses, id, screen] = pathname.split("/");
   const course = db.courses.find((course) => course._id === courseId);
 
+  
   return (
     <div className="d-none d-md-block">
       <div className="row align-items-center">

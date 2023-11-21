@@ -1,15 +1,14 @@
 import React from "react";
 import { FaPlus, FaEllipsisVertical } from "react-icons/fa6";
 import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as client from "./client";
-import {
-  addAssignment
-} from "./assignmentsReducer";
+import { addAssignment, setAssignment } from "./assignmentsReducer";
+
 function AssignmentButton() {
   const { courseId } = useParams();
   const navigate = useNavigate();
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
   const initialState = {
     title: "New Assignment",
@@ -19,17 +18,15 @@ function AssignmentButton() {
     available: "",
     until: "",
   };
+  
   const handleAddAssignment = () => {
-    client.createAssignment(courseId, initialState).then((newAssignment) => {
-      dispatch(
-        addAssignment({
-          ...newAssignment,
-          course: courseId,
-        })
-      );
-      navigate(`/Kanbas/Courses/${courseId}/Assignments/${newAssignment._id}`);
+    client.createAssignment(courseId, initialState).then((assignment) => {
+      dispatch(addAssignment(assignment));
+      navigate(`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`);
     });
   };
+
+  
   return (
     <div>
       <div className="row">
@@ -47,7 +44,11 @@ function AssignmentButton() {
           >
             <FaEllipsisVertical />
           </button>
-          <button  onClick={handleAddAssignment} type="button" className="btn btn-danger me-1 float-end">
+          <button
+            onClick={handleAddAssignment}
+            type="button"
+            className="btn btn-danger me-1 float-end"
+          >
             <FaPlus className="me-1 mb-1" />
             Assignment
           </button>

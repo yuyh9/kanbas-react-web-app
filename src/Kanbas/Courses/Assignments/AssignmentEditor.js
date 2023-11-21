@@ -17,23 +17,29 @@ function AssignmentEditor() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSave = async () => {
-    if (assignmentId !== undefined && assignmentId !== "") {
-      const status = await client.updateAssignment(assignment);
-      dispatch(updateAssignment(assignment));
-    } else {
-      client.createAssignment(courseId, assignment).then((newAssignment) => {
-        dispatch(
-          addAssignment({
-            ...newAssignment,
-            course: courseId,
-          })
-        );
-        navigate(`/Kanbas/Courses/${courseId}/Assignments/${newAssignment._id}`);
-      });
-    }
+  const handleAddAssignment = async () => {
+    const newAssignment = await client.createAssignment(courseId, assignment);
+    dispatch(addAssignment(newAssignment));
   };
-  
+
+  const handleUpdateAssignment = async () => {
+    const status = await client.updateAssignment(assignmentId, assignment);
+    dispatch(updateAssignment({ _id: assignmentId, ...assignment }));
+  };
+
+ const handleSave = async () => {
+    if (!assignmentId) {
+      await handleAddAssignment();
+    } else {
+      await handleUpdateAssignment();
+    }
+    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+  };
+
+  const handleCancel = () => {
+    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+  };
+
   return (
     <div>
       <div className="col-8 mx-5 mt-2">
@@ -49,12 +55,12 @@ function AssignmentEditor() {
         <hr />
         <form>
           <div className="mb-2">
-            <label for="name" class="col col-form-label">
+            <label htmlFor="name" className="col col-form-label">
               Assignments Name:
             </label>
             <div className="col">
               <input
-                class="form-control w-100"
+                className="form-control w-100"
                 value={assignment.title}
                 id="name"
                 onChange={(e) =>
@@ -67,12 +73,12 @@ function AssignmentEditor() {
           </div>
 
           <div className="mb-3">
-            <label for="textarea1" class="col col-form-label">
+            <label htmlFor="textarea1" className="col col-form-label">
               Assignment Description:
             </label>
             <div className="col">
               <textarea
-                class="form-control"
+                className="form-control"
                 id="textarea1"
                 rows="3"
                 value={assignment.description}
@@ -90,13 +96,13 @@ function AssignmentEditor() {
 
           <div className="col-10 container-fluid">
             <div className="mb-3 row">
-              <label for="points" class="col-4 text-end col-form-label">
+              <label htmlFor="points" className="col-4 text-end col-form-label">
                 Points
               </label>
               <div className="col">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="points"
                   value={assignment.points}
                   onChange={(e) =>
@@ -109,12 +115,12 @@ function AssignmentEditor() {
             </div>
             <div>
               <div className="mb-3 row">
-                <label for="assign" class="col-4 text-end col-form-label">
+                <label htmlFor="assign" className="col-4 text-end col-form-label">
                   Assign
                 </label>
                 <div className="col border border-light-subtle p-2 mb-3 ms-2 mt-2">
                   <div className="row ms-0">
-                    <label for="due" class="form-label mt-2">
+                    <label htmlFor="due" className="form-label mt-2">
                       Due
                     </label>
                   </div>
@@ -134,7 +140,7 @@ function AssignmentEditor() {
                           )
                         }
                       />
-                      <span class="input-group-text" id="due">
+                      <span className="input-group-text" id="due">
                         <FaRegCalendarDays />
                       </span>
                     </div>
@@ -142,14 +148,14 @@ function AssignmentEditor() {
 
                   <div className="row ms-0">
                     <div className="col">
-                      <label for="ava" class="form-label">
+                      <label htmlFor="ava" className="form-label">
                         Available from
                       </label>
                       <div className="row">
                         <div className="input-group mb-3">
                           <input
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             aria-label="ava"
                             aria-describedby="basic-addon2"
                             value={assignment.available}
@@ -162,14 +168,14 @@ function AssignmentEditor() {
                               )
                             }
                           />
-                          <span class="input-group-text" id="basic-addon2">
+                          <span className="input-group-text" id="basic-addon2">
                             <FaRegCalendarDays />
                           </span>
                         </div>
                       </div>
                     </div>
                     <div className="col">
-                      <label for="until" class="form-label">
+                      <label htmlFor="until" className="form-label">
                         Until
                       </label>
                       <div className="row">
@@ -189,7 +195,7 @@ function AssignmentEditor() {
                               )
                             }
                           />
-                          <span class="input-group-text" id="basic-addon1">
+                          <span className="input-group-text" id="basic-addon1">
                             <FaRegCalendarDays />
                           </span>
                         </div>
@@ -203,12 +209,9 @@ function AssignmentEditor() {
           <hr />
           <div className="mb-3 row ms-1">
             <div className="col d-flex justify-content-end mb-3">
-              <Link
-                to={`/Kanbas/Courses/${courseId}/Assignments`}
-                className="btn btn-light me-2"
-              >
-                Cancel
-              </Link>
+              <button onClick={handleCancel} className="btn btn-light me-2">
+               Cancel
+              </button>
               <button onClick={handleSave} className="btn btn-danger me-2">
                 Save
               </button>

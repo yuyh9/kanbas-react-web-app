@@ -27,7 +27,8 @@ const DeleteDialog = ({ assignment, handleConfirmDelete, handleCancelDelete }) =
             <button
               type="button"
               className="btn btn-danger"
-              onClick={handleConfirmDelete}
+              onClick={() => handleConfirmDelete(assignment._id)}
+
             >
               Yes
             </button>

@@ -7,33 +7,26 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   deleteAssignment,
   setAssignment,
+  setAssignments,
 } from "./assignmentsReducer";
 import DeleteDialog from "./DeleteDialog.js";
+import {findAssignmentsForCourse} from "./client";
 import * as client from "./client";
 
 function Assignments() {
   const { courseId } = useParams();
-  const [assignment, setAssignment] = useState({});
   const assignments = useSelector(
     (state) => state.assignmentsReducer.assignments
   );
-  const courseAssignments = assignments.filter(
-    (assignment) => assignment.course === courseId
-  );
-  useEffect(() => {
-    const fetchAssignmentsForCourse = async () => {
-      try {
-        const response = await client.findAssignmentsForCourse(courseId);
-        setAssignment(response);
-      } catch (error) {
-        console.error("Error fetching assignments:", error);
-      }
-    };
-
-    fetchAssignmentsForCourse();
-  }, [courseId]);
-
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    findAssignmentsForCourse(courseId)
+      .then((assignments) => {
+        dispatch(setAssignments(assignments));
+      })
+  }, [courseId]);
+  
 
   const [toggle, setToggle] = useState(true);
 
@@ -42,23 +35,26 @@ function Assignments() {
   };
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [selectedAssignment, setSelectedAssignment] = useState(null);
+
   const handleDelete = (assignment) => {
     setSelectedAssignment(assignment);
     setShowDeleteDialog(true);
   };
 
-  const handleConfirmDelete = () => {
-    dispatch(deleteAssignment(selectedAssignment._id));
-    setShowDeleteDialog(false);
-  };
-  
   const handleCancelDelete = () => {
     setShowDeleteDialog(false);
   };
 
+  const handleDeleteAssignment = (assignmentId) => {
+    client.deleteAssignment(assignmentId).then((status) => {
+      dispatch(deleteAssignment(assignmentId));
+      setShowDeleteDialog(false);
+    });
+  };
+
   return (
     <div className="col-10 mx-5">
-      <AssignmentButton />
+      <AssignmentButton/>
       <div className="list-group my-3">
         <div
           className="list-group-item list-group-item-secondary d-flex align-items-center justify-content-between fw-bold"
@@ -81,7 +77,7 @@ function Assignments() {
           </div>
         </div>
         {toggle &&
-          courseAssignments.map((assignment) => (
+          assignments.map((assignment) => (
             <div
               className="list-group-item d-flex align-items-center"
               style={{ borderLeft: "5px solid green" }}
@@ -153,7 +149,7 @@ function Assignments() {
               {showDeleteDialog && (
                 <DeleteDialog
                   assignment={selectedAssignment}
-                  handleConfirmDelete={handleConfirmDelete}
+                  handleConfirmDelete={handleDeleteAssignment}
                   handleCancelDelete={handleCancelDelete}
                 />
               )}
