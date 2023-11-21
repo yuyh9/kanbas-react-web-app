@@ -16,7 +16,6 @@ function AssignmentEditor() {
   const assignment = useSelector((state) => state.assignmentsReducer.assignment);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const handleAddAssignment = () => {
     client.createAssignment(courseId, assignment).then((assignment) => {
       dispatch(addAssignment(assignment));
