@@ -3,7 +3,7 @@ const request = axios.create({
   withCredentials: true,
 });
 export const BASE_API =
-  process.env.REACT_APP_BASE_API_URL || "https://kanbas-node-server-app-a6-ruak.onrender.com";
+  process.env.REACT_APP_BASE_API_URL || "http://localhost:4000";
 
 export const USERS_API = `${BASE_API}/api/users`;
 export const signin = async (credentials) => {
